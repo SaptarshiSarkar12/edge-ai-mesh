@@ -1,0 +1,16 @@
+syntax = "proto3";
+package inference;
+
+service EdgeCompute {
+  rpc RunInference (TensorRequest) returns (TensorResponse);
+}
+
+message TensorRequest {
+  string model_name = 1;
+  repeated float data = 2; // Flat array of your matrix
+}
+
+message TensorResponse {
+  repeated float output = 1;
+  float execution_time_ms = 2;
+}
