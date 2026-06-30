@@ -38,7 +38,7 @@ def serve():
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=4))
     inference_pb2_grpc.add_EdgeComputeServicer_to_server(ComputeServicer(), server)
     server.add_insecure_port('[::]:50051')
-    print("🚀 Compute Node (Real PyTorch NN) listening on port 50051...")
+    print("🚀 Compute Node listening on port 50051...")
     server.start()
     server.wait_for_termination()
 
